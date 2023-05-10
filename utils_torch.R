@@ -103,7 +103,7 @@ torch_data <- torch::dataset(
 
 new_batch <- function(norm_data, data_mask, batch_size, device = "cpu"){
   norm_dataloader <- torch::dataloader(norm_data, batch_size, shuffle = T)
-  norm_curr_batch <- torch::dataloader_next(torch::dataloader_make_iter(dataloader))
+  norm_curr_batch <- torch::dataloader_next(torch::dataloader_make_iter(norm_dataloader))
   
   
   mask_curr_batch <- data_mask$torch.data[norm_curr_batch$index]
